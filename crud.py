@@ -7,4 +7,4 @@ from utils import DriverFilterQueryBuilder
 
 def get_drivers(db: Session, filters: DriverFilter):
     q = DriverFilterQueryBuilder(**(filters.dict())).queries
-    return db.query(DriverDB).filter(*q).all()
+    return db.query(DriverDB).filter(*q).all()[filters.offset:(filters.offset+filters.limit)]

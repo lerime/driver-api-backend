@@ -25,6 +25,8 @@ class DriverResponse(BaseModel):
 
 
 class DriverFilter(BaseModel):
+    limit: int
+    offset: int
     start_date: Optional[date]
     end_date: Optional[date]
     min_score: Optional[float]
